@@ -22,7 +22,32 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First you have to either get a new random email or set your email username that
+you would like.
+
+### Example:
+
+To get a random email:
+
+```ruby
+g = GuerrillaMail.new
+```
+
+Or to get an email with the email username test
+
+ ```ruby
+ g = GuerrillaMail.new('test')
+ ```
+
+To check the email:
+```
+g.check_email
+```
+
+And to see the email address:
+```
+g['email_addr']
+```
 
 ## Development
 
@@ -33,4 +58,3 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/guerrillamail.
-
