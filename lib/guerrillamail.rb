@@ -18,6 +18,10 @@ class GuerrillaMail
     JSON.parse(Guerrillamail::API.new('check_email', {seq: seq}, @cookies).result.body)
   end
 
+  def fetch_email(id)
+    JSON.parse(Guerrillamail::API.new('fetch_email', {email_id: id}, @cookies).result.body)
+  end
+
   delegate :[] => :body
 
   private
