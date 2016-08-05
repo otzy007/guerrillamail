@@ -14,6 +14,13 @@ class GuerrillaMail
     end
   end
 
+  def check_email(seq = 0)
+    JSON.parse(Guerrillamail::API.new('check_email', {seq: seq}, @cookies).result.body)
+  end
+
+  delegate :[] => :body
+
+  private
   def with_email_user(email_user)
     request = Guerrillamail::API.new('set_email_user', email_user: email_user)
     @cookies = request.cookies
@@ -25,10 +32,4 @@ class GuerrillaMail
     @cookies = request.cookies
     @body = request.body
   end
-
-  def check_email(seq = 0)
-    JSON.parse(Guerrillamail::API.new('check_email', {seq: seq}, @cookies).result.body)
-  end
-
-  delegate :[] => :body
 end
